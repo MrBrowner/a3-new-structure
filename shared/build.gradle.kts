@@ -32,6 +32,8 @@ kotlin {
         withHostTest {
             isIncludeAndroidResources = true
         }
+        withDeviceTest {
+        }
     }
 
     listOf(
@@ -55,27 +57,69 @@ kotlin {
         browser()
     }
 
-    @OptIn(ExperimentalKotlinGradlePluginApi::class)
-    dependencies {
-        implementation(libs.compose.runtime)
-        implementation(libs.compose.foundation)
-        implementation(libs.compose.material3)
-        implementation(libs.compose.ui)
-        implementation(libs.compose.components.resources)
-        implementation(libs.compose.uiToolingPreview)
-        implementation(libs.androidx.lifecycle.viewmodelCompose)
-        implementation(libs.androidx.lifecycle.runtimeCompose)
-
-        implementation(libs.kotlinx.datetime)
-
-        testImplementation(libs.kotlin.test)
-    }
+//    @OptIn(ExperimentalKotlinGradlePluginApi::class)
+//    dependencies {
+//        // commonMain.dependencies
+//    }
 
     sourceSets {
         all {
             languageSettings {
                 optIn("kotlin.time.ExperimentalTime")
             }
+        }
+
+        commonMain.dependencies {
+            implementation(libs.compose.runtime)
+            implementation(libs.compose.foundation)
+            implementation(libs.compose.material3)
+            implementation(libs.compose.ui)
+            implementation(libs.compose.components.resources)
+            implementation(libs.compose.uiToolingPreview)
+            implementation(libs.androidx.lifecycle.viewmodelCompose)
+            implementation(libs.androidx.lifecycle.runtimeCompose)
+
+            implementation(libs.kotlinx.datetime)
+        }
+        commonTest.dependencies {
+            implementation(libs.kotlin.test)
+        }
+
+        androidMain.dependencies {
+            // Put Android-only libraries here (e.g., Ktor OkHttp engine)
+            // implementation("io.ktor:ktor-client-okhttp:x.x.x")
+        }
+        androidUnitTest.dependencies {
+            // Put Android-only libraries here (e.g., Ktor OkHttp engine)
+        }
+
+        iosMain.dependencies {
+            // Put iOS-only libraries here (e.g., Ktor Darwin engine)
+        }
+        iosTest.dependencies {
+            // Put iOS-only libraries here (e.g., Ktor Darwin engine)
+        }
+
+        jvmMain.dependencies {
+            // Put Desktop/JVM-only libraries here
+        }
+        jvmTest.dependencies {
+            // Put Desktop/JVM-only libraries here
+        }
+
+
+        jsMain.dependencies {
+            // Put JS-only libraries here
+        }
+        jsTest.dependencies {
+            // Put JS-only libraries here
+        }
+
+        wasmJsMain.dependencies {
+            // Put JS-only libraries here
+        }
+        wasmJsTest.dependencies {
+            // Put JS-only libraries here
         }
     }
 }
