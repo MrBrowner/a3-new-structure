@@ -26,3 +26,18 @@ Core Areas
 <br>Connectivity
 <br>App Compatibility
 <br>App bundles
+
+# Todo List Sample
+
+Project overview or instructions here.
+
+## 202602
+- [ ] Complete weekly report
+    - [ ] Gather data
+    - [x] Format document
+- [ ] Schedule team meeting @team
+- [ ] Review pull requests #dev
+
+
+## Done
+- [x] Initial setup 20260201
