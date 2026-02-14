@@ -9,15 +9,23 @@ plugins {
     alias(libs.plugins.composeCompiler)
 }
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
 kotlin {
+    jvmToolchain(17)
+
     androidLibrary {
         namespace = "org.example.project.composeApp"
         compileSdk = libs.versions.android.compileSdk.get().toInt()
         minSdk = libs.versions.android.minSdk.get().toInt()
 
-        compilerOptions {
-            jvmTarget = JvmTarget.JVM_11
-        }
+//        compilerOptions {
+//            jvmTarget = JvmTarget.JVM_11
+//        }
         androidResources {
             enable = true
         }
