@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.kotlinxSerialization)
 }
 
 java {
@@ -87,6 +88,11 @@ kotlin {
             implementation(libs.touchlab.kermit)
 
             implementation(libs.composables.composeunstyled)
+
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.logging)
+            implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.ktor.serialization.json)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -94,7 +100,7 @@ kotlin {
 
         androidMain.dependencies {
             // Put Android-only libraries here (e.g., Ktor OkHttp engine)
-            // implementation("io.ktor:ktor-client-okhttp:x.x.x")
+            implementation(libs.ktor.client.okhttp)
         }
         androidUnitTest.dependencies {
             // Put Android-only libraries here (e.g., Ktor OkHttp engine)
@@ -102,6 +108,7 @@ kotlin {
 
         iosMain.dependencies {
             // Put iOS-only libraries here (e.g., Ktor Darwin engine)
+            implementation(libs.ktor.client.darwin)
         }
         iosTest.dependencies {
             // Put iOS-only libraries here (e.g., Ktor Darwin engine)
