@@ -11,6 +11,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import co.touchlab.kermit.Logger
 import composedemo.shared.generated.resources.Res
 import composedemo.shared.generated.resources.eg
 import composedemo.shared.generated.resources.fr
@@ -34,7 +35,9 @@ val defaultCountries = listOf(
 @Composable
 @Preview
 fun App() {
+    Logger.e { "Hello World" }
     MaterialTheme {
+        Logger.e { "MaterialTheme" }
         var showCountries by remember { mutableStateOf(false) }
         var timeAtLocation by remember { mutableStateOf("No location selected") }
 
@@ -44,6 +47,7 @@ fun App() {
                 .safeContentPadding()
                 .fillMaxSize(),
         ) {
+            Logger.e { "timeAtLocation: $timeAtLocation" }
             Text(
                 timeAtLocation,
                 style = TextStyle(fontSize = 20.sp),
@@ -72,6 +76,7 @@ fun App() {
                                 }
                             },
                             onClick = {
+                                Logger.e { "On client: $name" }
                                 timeAtLocation = currentTimeAt(name, zone)
                                 showCountries = false
                             }

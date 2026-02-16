@@ -9,5 +9,6 @@
 
 #### 1-jvm17
 - incr jvm version 11 >> 17
-- setup: ksp
+- setup: ksp (not tested)
+- setup: kermit logger
 
