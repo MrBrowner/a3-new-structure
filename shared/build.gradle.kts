@@ -83,6 +83,8 @@ kotlin {
             implementation(libs.kotlinx.datetime)
 
             implementation(libs.touchlab.kermit)
+
+            implementation(libs.composables.composeunstyled)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
