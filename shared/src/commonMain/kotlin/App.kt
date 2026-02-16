@@ -50,7 +50,11 @@ fun App() {
                 textAlign = TextAlign.Center,
                 modifier = Modifier.fillMaxWidth().align(Alignment.CenterHorizontally)
             )
-            Row(modifier = Modifier.padding(start = 20.dp, top = 10.dp)) {
+
+            Box(modifier = Modifier.padding(start = 20.dp, top = 10.dp)) {
+                Button(onClick = { showCountries = !showCountries }) {
+                    Text("Select Location")
+                }
                 DropdownMenu(
                     expanded = showCountries,
                     onDismissRequest = { showCountries = false }
@@ -74,11 +78,6 @@ fun App() {
                         )
                     }
                 }
-            }
-            Button(
-                modifier = Modifier.padding(start = 20.dp, top = 10.dp),
-                onClick = { showCountries = !showCountries }) {
-                Text("Select Location")
             }
         }
     }
