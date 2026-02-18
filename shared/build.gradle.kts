@@ -22,7 +22,7 @@ kotlin {
 
     androidLibrary {
 //        https://developer.android.com/kotlin/multiplatform/plugin
-        namespace = "org.example.project.composeApp"
+        namespace = "compose.project.demo.composedemo.sharedUI"
         compileSdk = libs.versions.android.compileSdk.get().toInt()
         minSdk = libs.versions.android.minSdk.get().toInt()
 
@@ -109,6 +109,7 @@ kotlin {
 
         androidMain.dependencies {
             // Put Android-only libraries here (e.g., Ktor OkHttp engine)
+            implementation(libs.compose.uiToolingPreview)
             implementation(libs.ktor.client.okhttp)
         }
         androidUnitTest.dependencies {
