@@ -11,14 +11,14 @@ plugins {
     alias(libs.plugins.kotlinxSerialization)
 }
 
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
-    }
-}
+//java {
+//    toolchain {
+//        languageVersion = JavaLanguageVersion.of(17)
+//    }
+//}
 
 kotlin {
-    jvmToolchain(17)
+//    jvmToolchain(17)
 
     androidLibrary {
 //        https://developer.android.com/kotlin/multiplatform/plugin
@@ -26,9 +26,9 @@ kotlin {
         compileSdk = libs.versions.android.compileSdk.get().toInt()
         minSdk = libs.versions.android.minSdk.get().toInt()
 
-//        compilerOptions {
-//            jvmTarget = JvmTarget.JVM_11
-//        }
+        compilerOptions {
+            jvmTarget = JvmTarget.JVM_11
+        }
         androidResources {
             enable = true
         }
@@ -39,13 +39,10 @@ kotlin {
             instrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
             execution = "HOST"
         }
-        withJava() // enable java compilation support
+//        withJava() // enable java compilation support
 //        withHostTestBuilder {}.configure {}
 //        withDeviceTestBuilder { sourceSetTreeName = "test" }
         // Configure the JVM target for both Kotlin and Java sources
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_17)
-        }
     }
 
     listOf(
@@ -82,6 +79,7 @@ kotlin {
         }
 
         commonMain.dependencies {
+//            api(projects.sharedLogic)
             implementation(libs.compose.runtime)
             implementation(libs.compose.foundation)
             implementation(libs.compose.material3)

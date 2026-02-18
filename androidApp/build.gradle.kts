@@ -7,14 +7,12 @@ plugins {
 }
 
 kotlin {
-//    target {
-//        compilerOptions {
-//            jvmTarget.set(JvmTarget.JVM_11)
-//        }
-//    }
+    compilerOptions {
+        jvmTarget = JvmTarget.JVM_17
+    }
 
     dependencies {
-        implementation(projects.shared)
+        implementation(projects.shared) // UI
 
         implementation(libs.androidx.activity.compose)
         implementation(libs.compose.uiToolingPreview)
@@ -42,8 +40,8 @@ android {
             isMinifyEnabled = false
         }
     }
-//    compileOptions {
-//        sourceCompatibility = JavaVersion.VERSION_11
-//        targetCompatibility = JavaVersion.VERSION_11
-//    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
 }

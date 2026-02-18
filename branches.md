@@ -15,3 +15,4 @@
 - setup: composable-unstyled
 - setup: coroutines
 - setup: ktor
+- setup: from kotlin-hands-on/get-started-with-kmp (new-struct branch)
