@@ -21,6 +21,7 @@ kotlin {
     jvmToolchain(17)
 
     androidLibrary {
+//        https://developer.android.com/kotlin/multiplatform/plugin
         namespace = "org.example.project.composeApp"
         compileSdk = libs.versions.android.compileSdk.get().toInt()
         minSdk = libs.versions.android.minSdk.get().toInt()
@@ -35,6 +36,15 @@ kotlin {
             isIncludeAndroidResources = true
         }
         withDeviceTest {
+            instrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+            execution = "HOST"
+        }
+        withJava() // enable java compilation support
+//        withHostTestBuilder {}.configure {}
+//        withDeviceTestBuilder { sourceSetTreeName = "test" }
+        // Configure the JVM target for both Kotlin and Java sources
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_17)
         }
     }
 
@@ -92,7 +102,8 @@ kotlin {
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.logging)
             implementation(libs.ktor.client.content.negotiation)
-            implementation(libs.ktor.serialization.json)
+
+            implementation(libs.kotlinx.serialization.json)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
